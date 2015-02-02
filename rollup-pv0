@@ -1,0 +1,4 @@
+A = LOAD 'input-6' AS (year:int, month:int, day:int, hour:int, minute:int, second:int, payload:int);
+B = CUBE A BY ROLLUP(year, month, day, hour, minute, second) PIVOT 1;
+C = FOREACH B GENERATE  group, SUM(cube.payload);
+STORE C INTO 'output/test/rollup-pv0';

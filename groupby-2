@@ -1,0 +1,4 @@
+A = LOAD 'input-group' AS (index: int, a: long, b: long, c: long, d: long);
+B = GROUP A BY index;
+C = FOREACH B GENERATE FLATTEN(group);
+STORE B INTO 'output/test-reducer';

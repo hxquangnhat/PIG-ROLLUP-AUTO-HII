@@ -1,0 +1,4 @@
+A = LOAD 'test-samp/input' AS (year:int, month:int, day:int, hour:int, minute:int, second:int, payload:int);
+B = GROUP A BY (year, month, day, hour, minute, second);
+C = FOREACH B GENERATE FLATTEN(group) as (y,m,d,h,mi,s), SUM(A.payload);
+STORE C INTO 'output';

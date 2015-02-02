@@ -1,0 +1,2 @@
+A = LOAD 'input-real' AS (year:int, month:int, day:int, hour:int, minute:int, second:int, payload: int);
+STORE A INTO 'output';

@@ -1,0 +1,37 @@
+Pig Stack Trace
+---------------
+ERROR 6000: 
+<file rollup, line 4, column 0> Output Location Validation Failed for: 'file:///home/hoang/DATA/WORKSPACE/trunk0408/output More info to follow:
+Output directory file:/home/hoang/DATA/WORKSPACE/trunk0408/output already exists
+
+org.apache.pig.impl.plan.VisitorException: ERROR 6000: 
+<file rollup, line 4, column 0> Output Location Validation Failed for: 'file:///home/hoang/DATA/WORKSPACE/trunk0408/output More info to follow:
+Output directory file:/home/hoang/DATA/WORKSPACE/trunk0408/output already exists
+	at org.apache.pig.newplan.logical.rules.InputOutputFileValidator$InputOutputFileVisitor.visit(InputOutputFileValidator.java:108)
+	at org.apache.pig.newplan.logical.relational.LOStore.accept(LOStore.java:66)
+	at org.apache.pig.newplan.DepthFirstWalker.depthFirst(DepthFirstWalker.java:64)
+	at org.apache.pig.newplan.DepthFirstWalker.depthFirst(DepthFirstWalker.java:66)
+	at org.apache.pig.newplan.DepthFirstWalker.depthFirst(DepthFirstWalker.java:66)
+	at org.apache.pig.newplan.DepthFirstWalker.depthFirst(DepthFirstWalker.java:66)
+	at org.apache.pig.newplan.DepthFirstWalker.depthFirst(DepthFirstWalker.java:66)
+	at org.apache.pig.newplan.DepthFirstWalker.walk(DepthFirstWalker.java:53)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.rules.InputOutputFileValidator.validate(InputOutputFileValidator.java:47)
+	at org.apache.pig.backend.hadoop.executionengine.HExecutionEngine.compile(HExecutionEngine.java:321)
+	at org.apache.pig.backend.hadoop.executionengine.HExecutionEngine.launchPig(HExecutionEngine.java:372)
+	at org.apache.pig.PigServer.launchPlan(PigServer.java:1383)
+	at org.apache.pig.PigServer.executeCompiledLogicalPlan(PigServer.java:1368)
+	at org.apache.pig.PigServer.execute(PigServer.java:1355)
+	at org.apache.pig.PigServer.executeBatch(PigServer.java:416)
+	at org.apache.pig.PigServer.executeBatch(PigServer.java:394)
+	at org.apache.pig.tools.grunt.GruntParser.executeBatch(GruntParser.java:169)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:202)
+	at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:81)
+	at org.apache.pig.Main.run(Main.java:608)
+	at org.apache.pig.Main.main(Main.java:156)
+Caused by: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory file:/home/hoang/DATA/WORKSPACE/trunk0408/output already exists
+	at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:137)
+	at org.apache.pig.newplan.logical.rules.InputOutputFileValidator$InputOutputFileVisitor.visit(InputOutputFileValidator.java:82)
+	... 22 more
+================================================================================
